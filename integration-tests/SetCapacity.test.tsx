@@ -6,9 +6,10 @@ import App from '../src/containers/App';
 describe('User can set capacity', () => {
   test.each`
     input    | testDesc
-    ${"-20"} | ${"negative number"}
-    ${"abc"} | ${"non-numeric"}
-  `('User cannot enter a $testDesc capacity', ({ input }) => {
+    ${"abc"} | ${"a non-numeric"}
+    ${"0"}   | ${"0 for the"}
+    ${"-20"} | ${"a negative number"}
+  `('User cannot enter $testDesc capacity', ({ input }) => {
     render(<App />);
 
     const capacityInput = screen.getByRole("textbox", { name: /Capacity/i });
